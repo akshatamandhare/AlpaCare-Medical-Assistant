@@ -1,7 +1,3 @@
-"""
-AlpaCare Medical Assistant - Setup Script
-Install dependencies and verify environment
-"""
 
 import subprocess
 import sys
@@ -119,3 +115,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
