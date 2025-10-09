@@ -1,7 +1,3 @@
-"""
-AlpaCare Medical Assistant - Data Loader
-Loads and preprocesses the AlpaCare-MedInstruct-52k dataset from Hugging Face
-"""
 
 import os
 import json
@@ -204,4 +200,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
