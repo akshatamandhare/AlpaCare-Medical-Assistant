@@ -204,12 +204,6 @@ source alpacare-env/bin/activate  # On Windows: alpacare-env\Scripts\activate
 pip install -e .
 ```
 
-## 📞 Support & Contact
-
-- 🐛 **Issues**: [GitHub Issues](https://github.com/akshatamandhare/AlpaCare-Medical-Assistant/issues)
-- 📧 **Email**: [Your Email]
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/akshatamandhare/AlpaCare-Medical-Assistant/discussions)
-
 ## 🙏 Acknowledgments
 
 - **Original AlpaCare Team**: For the foundational research and MedInstruct-52k dataset
