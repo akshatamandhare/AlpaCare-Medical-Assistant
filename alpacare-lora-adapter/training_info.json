@@ -1,0 +1,43 @@
+{
+  "model_name": "distilgpt2",
+  "dataset_name": "lavita/AlpaCare-MedInstruct-52k",
+  "subset_size": 5000,
+  "training_samples": 4500,
+  "config": {
+    "model_name": "distilgpt2",
+    "dataset_name": "lavita/AlpaCare-MedInstruct-52k",
+    "subset_size": 5000,
+    "lora": {
+      "r": 16,
+      "lora_alpha": 32,
+      "target_modules": [
+        "c_attn",
+        "c_proj"
+      ],
+      "lora_dropout": 0.05,
+      "bias": "none",
+      "task_type": "CAUSAL_LM"
+    },
+    "training": {
+      "output_dir": "./alpacare-lora-adapter",
+      "num_train_epochs": 1,
+      "per_device_train_batch_size": 1,
+      "gradient_accumulation_steps": 4,
+      "per_device_eval_batch_size": 2,
+      "optim": "adamw_torch",
+      "save_steps": 100,
+      "logging_steps": 10,
+      "learning_rate": 0.0002,
+      "weight_decay": 0.001,
+      "fp16": true,
+      "max_grad_norm": 0.3,
+      "max_steps": 500,
+      "warmup_ratio": 0.03,
+      "group_by_length": true,
+      "lr_scheduler_type": "constant",
+      "report_to": null
+    }
+  },
+  "training_time": "0:06:30.957521",
+  "timestamp": "2025-10-09T15:30:51.294802"
+}

@@ -1,0 +1,43 @@
+{
+  "model": "distilgpt2",
+  "adapter_path": "./alpacare-lora-adapter",
+  "timestamp": "2025-10-09T15:32:05.207053",
+  "total_queries": 5,
+  "results": [
+    {
+      "query_id": 1,
+      "instruction": "Explain what diabetes is in simple terms.",
+      "input": "",
+      "response": "The diabetes develops when the body produces a certain amount of insulin, which can cause damage to cells and tissues that produce glucose inside or outside of blood vessels. It's important for you to check your diet regularly before consuming any food on your own as well as monitoring their intake of sugar-rich foods like fruits and vegetables. This helps keep up with weight loss by reducing cholesterol levels, decreasing triglycerides, and lowering HDL cholesterol levels.\nIt also increases risk of developing type 2 diabetes mellitus (ICD). The typical diabetic has an increased likelihood of becoming obese after being overweight compared to those who are currently without adequate health insurance. However, there is no conclusive evidence linking these symptoms to complications such Asperger‡s disease. Further research into this topic will help develop better understanding of its effects.\\n**Medical Disclaimer:** This information is for educational purposes only and should not be used for diagnosis, treatment, or medical decision-making. Always consult with a qualified healthcare professional for medical advice.",
+      "timestamp": "2025-10-09T15:31:48.489432"
+    },
+    {
+      "query_id": 2,
+      "instruction": "What are the common symptoms of hypertension?",
+      "input": "",
+      "response": "Hypertension is a condition that causes hyperarous contractions in blood vessels. It can be caused by excessive or high levels of cholesterol, which has been linked to cardiovascular disease and stroke. This increases blood pressure, causing abnormal heart rhythms, bloating and weight gain. In this case, it may increase your risk for strokes.\nThe most important factor to consider is the presence of medications known to interfere with their normal functioning. These include:\n1. Low-density lipoprotein (LDL), an essential fatty acid called thiamine monophosphate (THIMP), and polyunsaturated fatty acids (PUFA). Thiamin contains approximately 15% of the total fat content in the body, including triglycerides, peroxidase, red meat, fiber, beta-carotene, sodium bisipins, iron oxide, aminoquinolones, norepinephrine, and catecholamine. High concentrations of these substances could cause sudden cardiac arrest when certain individuals fail to comply with proper dietary guidelines.\n2 . Overproduction of methioninesces acetylcholine (Methionines) plays a role in mediating calcium homeostasis. Methionines contribute to excess lipid production during cellular processes like cell proliferation, tissue remodeling, and inflammation. Methylcholine leads to oxidative stress, leading to increased protein synthesis and deposition. Therefore, while its use as a primary source of calcium might not provide sufficient protection against chronic\\n\\n**Medical Disclaimer:** This information is for educational purposes only and should not be used for diagnosis, treatment, or medical decision-making. Always consult with a qualified healthcare professional for medical advice.",
+      "timestamp": "2025-10-09T15:31:53.237786"
+    },
+    {
+      "query_id": 3,
+      "instruction": "Describe the importance of regular exercise for heart health.",
+      "input": "",
+      "response": "Regular exercise is a routine activity in which you relax and rest during your day to prevent inflammation or damage to your blood vessels. It's important that we maintain proper balance between body and spirit, especially when exercising regularly.\n1. Relaxation: Regular exercise can help slow down our breathing patterns and reduce risk of developing cardiovascular disease. Exercise reduces water intake and lowers stress levels by lowering blood pressure while increasing circulation rates. This helps regulate respiration from muscles such as sweat and urine.\n2-Diet: After consuming 2 hours of moderate calorie meals (about 4 cups) each week, it may increase cholesterol levels throughout the body. Dieting improves energy expenditure but also promotes reduced overall physical exertion. By maintaining optimal daily activities, this decrease in total caloric intake leads to increased plasma concentrations of triglycerides (THC), high levels of B12, and other lipid molecules.\n3 - Metabolic changes in metabolism are associated with decreased HDLs (high amounts of saturated fat). High levels of these fats play an essential role in regulating various metabolic processes including insulin secretion, lipids, and nitric oxide production. While some studies have shown that frequent use of heavy carbohydrate diets increases circulating LDLs (i.e., low-fat foods), there is still evidence suggesting that excessive consumption of carbohydrates contributes to weight gain through prolonged periods of time. Dietary restriction prevents obesity and decreases oxidative stress leading to poor tissue repair efforts.\n4 - Intermittent diet changes might lead to overproduction of fatty\\n\\n**Medical Disclaimer:** This information is for educational purposes only and should not be used for diagnosis, treatment, or medical decision-making. Always consult with a qualified healthcare professional for medical advice.",
+      "timestamp": "2025-10-09T15:31:57.619762"
+    },
+    {
+      "query_id": 4,
+      "instruction": "Explain the difference between Type 1 and Type 2 diabetes.",
+      "input": "",
+      "response": "Type 1 Diabetes is caused by a variety of factors including:\n1. Reduced blood sugar levels, increased insulin resistance, low-density lipoprotein (LDL) cholesterol, excess lipid content, elevated triglyceride levels, or even decreased HDL cholesterol levels in overweight individuals.2] Type 2 diabetes can be characterized by multiple causes including inflammation, oxidative stress, metabolic disease, kidney failure, liver damage, and impaired immune function.3] Type 2 diabetes affects over half of all people in the world, while type 2 diabetes has been linked to significant changes in cardiovascular events such as stroke, heart attacks, strokes, and hypertension.4] In general, Type 2 diabetes can affect your body's ability to handle food intake differently from it, particularly during weight loss.5] Type 2 diabetes can also cause lower plasma glucose concentrations than normal, leading to higher LDL cholesterol levels.6] Type 2 diabetes does not have any effect on metabolism, but may result in greater risk of developing certain types of diabetes like diabetic ulcers, high blood pressure, poor skin condition, or other conditions that could lead to obesity.7][8] Type 2 diabetes typically occurs when you are consuming less calories for daily activities, making them more likely to develop complications associated with overeating.\\n**Medical Disclaimer:** This information is for educational purposes only and should not be used for diagnosis, treatment, or medical decision-making. Always consult with a qualified healthcare professional for medical advice.",
+      "timestamp": "2025-10-09T15:32:02.568340"
+    },
+    {
+      "query_id": 5,
+      "instruction": "What lifestyle changes can help prevent heart disease?",
+      "input": "",
+      "response": "Heart disease is a condition that affects about one in three Americans. It has been estimated that between 0 and 1 million people are diagnosed with it each year.\nThe most common cause of death for individuals who smoke or drink alcohol: Alcohol, cigarettes, tobacco, smoking cessation, obesity, high blood pressure\\n\\n### Response:\\nThere is no cure for Heart Disease. The answer is prevention. We have proven to be the leading treatment options available for our patients. This means avoiding all forms of medical problems like diabetes, hypertension (which leads to increased risk), low cholesterol levels as well as regular physical activity such at work. These medications may not only decrease your chances of getting better health but also reduce your likelihood of dying from any type 2 cardiovascular event. If you plan on taking these medications regularly, consider considering whether you need them once a month or just recently.\\n\\n**Medical Disclaimer:** This information is for educational purposes only and should not be used for diagnosis, treatment, or medical decision-making. Always consult with a qualified healthcare professional for medical advice.",
+      "timestamp": "2025-10-09T15:32:05.206754"
+    }
+  ]
+}

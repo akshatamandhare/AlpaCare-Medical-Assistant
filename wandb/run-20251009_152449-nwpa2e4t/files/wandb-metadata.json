@@ -1,0 +1,36 @@
+{
+  "os":  "Linux-6.6.97+-x86_64-with-glibc2.35",
+  "python":  "CPython 3.12.11",
+  "startedAt":  "2025-10-09T15:24:49.316016Z",
+  "program":  "/content/train_model.py",
+  "codePath":  "train_model.py",
+  "codePathLocal":  "train_model.py",
+  "email":  "akshatamandhare03@gmail.com",
+  "root":  "/content",
+  "host":  "a1013678af04",
+  "executable":  "/usr/bin/python3",
+  "cpu_count":  1,
+  "cpu_count_logical":  2,
+  "gpu":  "Tesla T4",
+  "gpu_count":  1,
+  "disk":  {
+    "/":  {
+      "total":  "120942624768",
+      "used":  "44023267328"
+    }
+  },
+  "memory":  {
+    "total":  "13605658624"
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "Tesla T4",
+      "memoryTotal":  "16106127360",
+      "cudaCores":  2560,
+      "architecture":  "Turing",
+      "uuid":  "GPU-f2b37619-d261-201b-1ac9-eeada2ab2532"
+    }
+  ],
+  "cudaVersion":  "12.4",
+  "writerId":  "js6okrylvx01xba4q85aom8yd6ouewcd"
+}
