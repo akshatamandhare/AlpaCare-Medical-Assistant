@@ -1,7 +1,3 @@
-"""
-AlpaCare Medical Assistant - Quick Start Script
-One-command training and inference
-"""
 
 import os
 import sys
@@ -80,4 +76,5 @@ def main():
         print("- Run interactive inference: python run.py inference")
 
 if __name__ == "__main__":
+
     main()
