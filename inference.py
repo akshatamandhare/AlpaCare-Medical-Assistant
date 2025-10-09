@@ -1,8 +1,3 @@
-"""
-AlpaCare Medical Assistant - Inference Script
-Load trained model and run inference with safety checks
-"""
-
 import os
 import torch
 import json
@@ -283,4 +278,5 @@ def main():
         print("Invalid choice. Exiting.")
 
 if __name__ == "__main__":
+
     main()
