@@ -1,215 +1,207 @@
-# 🏥 AlpaCare Medical Assistant
+# 🩺 AlpaCare Medical Assistant
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Python](https://img.shields.io/badge/python-3.8+-brightgreen.svg)
-![HuggingFace](https://img.shields.io/badge/🤗%20Hugging%20Face-Transformers-yellow)
-![LoRA](https://img.shields.io/badge/PEFT-LoRA-orange)
+AlpaCare Medical Assistant is an **AI-powered educational medical chatbot** designed to provide informative and safe responses to healthcare-related queries.  
+The project fine-tunes the **Llama-2 model** using **Parameter-Efficient Fine-Tuning (PEFT)** and **LoRA** to enhance medical knowledge while maintaining ethical boundaries.
 
-> **A fine-tuned medical instruction assistant built on LLaMA architecture using LoRA/PEFT technique for safe, non-diagnostic medical guidance.**
+---
 
-## ✨ Overview
+## 🌐 Project Overview
 
-AlpaCare is an advanced medical instruction assistant that combines the power of Large Language Models (LLMs) with specialized medical knowledge. Built using Parameter-Efficient Fine-Tuning (PEFT) with LoRA technique on the comprehensive **MedInstruct-52k** dataset, this model provides reliable, safe, and non-diagnostic medical information and guidance.
+The goal of this project is to create a **safe and educational conversational assistant** that can explain medical conditions, symptoms, and treatments — **without offering real medical advice or diagnosis**.  
+It is built for **academic and research purposes**, showcasing how advanced LLMs can be adapted responsibly for the healthcare domain.
 
-### 🎯 Key Features
+### Key Features
+- Fine-tuned **Llama-2** model with **PEFT + LoRA**
+- Preprocessed dataset focused on **medical education**
+- **Content safety filters** and **automatic disclaimers**
+- Modular scripts for **training**, **inference**, and **data handling**
 
-- **🔬 Medical Expertise**: Fine-tuned on 52,000+ diverse medical instruction-response pairs
-- **⚡ Efficient Training**: Uses LoRA (Low-Rank Adaptation) for parameter-efficient fine-tuning
-- **🛡️ Safety First**: Designed for non-diagnostic medical instruction and education
-- **🎭 Conversational**: Natural language understanding for medical queries
-- **📚 Comprehensive**: Covers various medical domains and scenarios
-- **💻 Lightweight**: <7B parameters for efficient deployment
+---
 
-## 🏗️ Architecture
+## 🧠 Architecture & Approach
+
+### 🔹 Model Architecture
+The system is based on:
+- **Base Model**: Llama-2 (7B/13B)
+- **Fine-tuning Technique**: LoRA (Low-Rank Adaptation) via PEFT
+- **Training Framework**: Hugging Face Transformers + TRL (Reinforcement Learning with Human Feedback support)
+
+### 🔹 System Workflow
+1. **Data Preparation** – Medical educational dataset is cleaned and formatted into instruction-based samples.  
+2. **Model Fine-Tuning** – Using LoRA adapters for efficient and low-resource training.  
+3. **Evaluation & Inference** – The model generates responses with embedded safety filters.  
+4. **Result Storage** – Outputs and logs are stored in `/results` for later analysis.
 
 ```
-Base Model: LLaMA-2-7B
-├── Fine-tuning Method: LoRA/PEFT
-├── Dataset: MedInstruct-52k (52,000 samples)
-├── Training: Parameter-efficient approach
-└── Output: Safe medical instruction assistant
++----------------------+
+|  Medical Dataset     |
++----------+-----------+
+           |
+           v
++----------+-----------+
+|  Preprocessing       |
+|  (data_loader.py)    |
++----------+-----------+
+           |
+           v
++----------+-----------+
+|  Fine-Tuning Model   |
+|  (train_model.py)    |
++----------+-----------+
+           |
+           v
++----------+-----------+
+|  Inference Engine    |
+|  (inference.py)      |
++----------+-----------+
+           |
+           v
++----------+-----------+
+|  Safe Educational    |
+|  Medical Responses   |
++----------------------+
 ```
 
-## 🚀 Quick Start
+---
 
-### Prerequisites
+## ⚙️ How to Run the Project
 
+### Step 1: Clone the Repository
 ```bash
-Python >= 3.8
-PyTorch >= 1.12.0
-transformers >= 4.21.0
-peft >= 0.3.0
-datasets >= 2.4.0
-accelerate >= 0.20.0
-```
-
-### Installation
-
-```bash
-# Clone the repository
 git clone https://github.com/akshatamandhare/AlpaCare-Medical-Assistant.git
 cd AlpaCare-Medical-Assistant
+```
 
-# Install dependencies
+### Step 2: Setup Environment
+```bash
+python -m venv alpacare_env
+source alpacare_env/bin/activate       # On Windows: alpacare_env\Scripts\activate
 pip install -r requirements.txt
-
-# Download model weights (if applicable)
-# Note: Add specific download instructions here
 ```
 
-### Basic Usage
-
-```python
-from transformers import AutoTokenizer, AutoModelForCausalLM
-from peft import PeftModel
-
-# Load base model and tokenizer
-model_name = "meta-llama/Llama-2-7b-hf"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-base_model = AutoModelForCausalLM.from_pretrained(model_name)
-
-# Load LoRA adapter
-model = PeftModel.from_pretrained(base_model, "path/to/alpacare-adapter")
-
-# Generate medical instruction
-prompt = "What are the common symptoms of hypertension?"
-inputs = tokenizer(prompt, return_tensors="pt")
-outputs = model.generate(**inputs, max_length=200, do_sample=True, temperature=0.7)
-response = tokenizer.decode(outputs[0], skip_special_tokens=True)
-print(response)
-```
-
-## 🔧 Training Details
-
-### Dataset: MedInstruct-52k
-- **Size**: 52,000 instruction-response pairs
-- **Source**: Generated using GPT-4 and ChatGPT with expert-curated seed tasks
-- **Quality**: High-quality, diverse medical scenarios
-- **Coverage**: Multiple medical specialties and difficulty levels
-
-### Fine-tuning Configuration
-```python
-# LoRA Configuration
-lora_config = {
-    "r": 16,
-    "lora_alpha": 32,
-    "target_modules": ["q_proj", "v_proj"],
-    "lora_dropout": 0.1,
-    "bias": "none",
-    "task_type": "CAUSAL_LM"
-}
-
-# Training Parameters
-training_args = {
-    "per_device_train_batch_size": 4,
-    "gradient_accumulation_steps": 4,
-    "warmup_steps": 100,
-    "max_steps": 1500,
-    "learning_rate": 2e-4,
-    "fp16": True,
-    "logging_steps": 25,
-    "save_steps": 500
-}
-```
-
-## 🛡️ Safety & Ethics
-
-### ⚠️ Important Disclaimers
-- **Not for diagnosis**: This model provides educational information only
-- **Consult professionals**: Always seek qualified medical advice for health concerns
-- **Emergency situations**: Contact emergency services immediately for urgent medical needs
-- **Medication guidance**: Never replace prescribed treatments without medical supervision
-
-### 🎯 Intended Use
-- Medical education and information
-- General health guidance
-- Medical terminology explanation
-- Symptom awareness (not diagnosis)
-- Healthcare literacy improvement
-
-## 📁 Project Structure
-
-```
-AlpaCare-Medical-Assistant/
-├── README.md
-├── requirements.txt
-├── config/
-│   ├── lora_config.json
-│   └── training_config.json
-├── src/
-│   ├── train.py
-│   ├── inference.py
-│   ├── data_preprocessing.py
-│   └── evaluation.py
-├── models/
-│   └── adapters/
-├── data/
-│   └── processed/
-└── notebooks/
-    ├── training_demo.ipynb
-    └── inference_examples.ipynb
-```
-
-## 🚀 Deployment
-
-### Local Deployment
+### Step 3: Login to HuggingFace
 ```bash
-python src/inference.py --model_path ./models/alpacare-adapter
+pip install huggingface_hub
+huggingface-cli login
 ```
 
-### API Deployment
-```python
-from flask import Flask, request, jsonify
-from src.inference import AlpaCareModel
-
-app = Flask(__name__)
-model = AlpaCareModel()
-
-@app.route('/medical-assistant', methods=['POST'])
-def get_medical_response():
-    query = request.json['query']
-    response = model.generate_response(query)
-    return jsonify({'response': response})
-```
-
-## 📈 Evaluation Results
-
-### Medical Benchmarks
-- **MedInstruct-test**: Superior performance across 217 clinical scenarios
-- **Medical QA**: Improved accuracy in medical question-answering tasks
-- **Safety Evaluation**: High compliance with medical safety guidelines
-
-### Comparison with Baselines
-| Model | Medical F1 | General F1 | Safety Score |
-|-------|------------|------------|--------------|
-| AlpaCare | **0.785** | **0.723** | **0.95** |
-| ClinicalBERT | 0.642 | 0.698 | 0.89 |
-| BioBERT | 0.658 | 0.705 | 0.91 |
-| GPT-3.5 | 0.721 | 0.756 | 0.87 |
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
-
-### Development Setup
+### Step 4: Run the Model
 ```bash
-# Fork and clone the repository
-git clone https://github.com/yourusername/AlpaCare-Medical-Assistant.git
+# Quick training & inference
+python run.py quick
 
-# Create development environment
-python -m venv alpacare-env
-source alpacare-env/bin/activate  # On Windows: alpacare-env\Scripts\activate
+# Full training
+python run.py train
 
-# Install in development mode
-pip install -e .
+# Inference only (with pretrained adapter)
+python run.py inference
 ```
 
-## 🙏 Acknowledgments
+---
 
-- **Original AlpaCare Team**: For the foundational research and MedInstruct-52k dataset
-- **Meta AI**: For the LLaMA base model
-- **Hugging Face**: For the transformers and PEFT libraries
-- **Medical Community**: For guidance on safety and ethical considerations
+## 📦 Dependencies
+
+| Library | Version (min) | Purpose |
+|----------|----------------|---------|
+| torch | 2.0.0 | Deep learning framework |
+| transformers | 4.35.0 | Model loading and tokenization |
+| peft | 0.6.0 | LoRA-based fine-tuning |
+| datasets | 2.14.0 | Dataset handling |
+| accelerate | 0.20.0 | Multi-GPU training |
+| bitsandbytes | 0.41.0 | Memory-efficient optimization |
+| trl | 0.7.0 | RLHF fine-tuning support |
+| jupyter | Latest | Notebook support |
+
+Install all dependencies via:
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 📊 Dataset Information
+
+### 📁 Source
+- The dataset can be a **custom educational medical dataset** or obtained from public sources like:
+  - [Hugging Face Medical Datasets](https://huggingface.co/datasets)
+  - [PubMedQA](https://pubmedqa.github.io/)
+  - [MedQA](https://github.com/jind11/MedQA)
+
+### 🧩 Format
+Each record should be in instruction format:
+```json
+{
+  "instruction": "Explain what hypertension is.",
+  "input": "",
+  "output": "Hypertension is a medical condition where blood pressure levels remain higher than normal..."
+}
+```
+
+### 🔍 Preprocessing
+Use `data_loader.py` to clean, tokenize, and prepare the dataset before training.
+
+---
+
+## 🎯 Expected Outputs
+
+After successful training and inference:
+- The model should **generate safe and educational responses** to medical queries.
+- All outputs include a **medical disclaimer**.
+- Example response:
+
+**Input:**  
+> What are the symptoms of diabetes?
+
+**Output:**  
+> Diabetes symptoms may include increased thirst, frequent urination, fatigue, and blurred vision.  
+> *Disclaimer: This information is for educational purposes only and should not be used for diagnosis or treatment.*
+
+---
+
+## 🧰 Troubleshooting
+
+**CUDA Out of Memory**
+```python
+config['training']['per_device_train_batch_size'] = 1
+config['training']['gradient_accumulation_steps'] = 8
+```
+
+**Slow Training**
+```python
+config['subset_size'] = 1000
+config['training']['max_steps'] = 100
+```
+
+**HuggingFace Login Issues**
+```bash
+huggingface-cli logout
+huggingface-cli login
+```
+
+---
+
+## ⚠️ Ethical & Safety Note
+
+> This model is intended **strictly for educational purposes**.  
+> It must **not** be used for medical diagnosis, treatment, or clinical decisions.
+
+Always consult a certified medical professional for health concerns.
+
+---
+
+## 🧩 Next Steps
+
+1. Fine-tune with additional data  
+2. Evaluate with domain experts  
+3. Enhance dataset for multilingual support  
+4. Deploy safely using APIs or web interfaces  
+
+---
+
+## 👨‍💻 Author
+
+**Akshata Mandhare**  
+GitHub: [akshatamandhare](https://github.com/akshatamandhare)  
 
 ---
 
